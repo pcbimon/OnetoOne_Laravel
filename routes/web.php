@@ -21,3 +21,10 @@ Route::get('/insert', function()
   $address = new Address(['name'=>'109 M.6 Huymoung 73140']);
   $user ->address()->save($address);
 });
+Route::get('/update', function()
+{
+  $address = Address::where('user_id',"=",1)->first();
+  //$address = Address::whereUserId(1)->first();
+  $address->name = "123/4 BKK";
+  $address->save();
+});

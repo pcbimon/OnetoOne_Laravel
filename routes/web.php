@@ -28,3 +28,13 @@ Route::get('/update', function()
   $address->name = "123/4 BKK";
   $address->save();
 });
+Route::get('/read', function()
+{
+  $user = User::findOrfail(1);
+  echo $user->address->name;
+});
+Route::get('/delete', function()
+{//delete Address from user id = 1
+  $user = User::findOrfail(1);
+  $user->address->delete();
+});
